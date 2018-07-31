@@ -2,34 +2,103 @@ from node import Node
 
 class LinkedList(object):
     def __init__(self):
-        self.h = None
-    
-    def __iter__(self):
-        current = self.head
-        while current:
-            yield current
-            current = current.next
-    
+        self.head = None
+
     @property
     def head(self):
-        return(self.h)
+        return(self.head)
     
     @head.setter
-    def head(self, val):
-        self.h = val
-    
+    def head(self, node):
+        self.head = node
+
     def isEmpty(self):
         return self.head == None
     
-    def add_head(self, node):
+    def add_head(self, val):
+        nod = Node(val)
         if self.isEmpty():
-            self.head = node
+            nod.next = None
+            self.head = nod
         else:
-            node.next = self.head
-            self.head = node
+            nod.next = self.head
+            self.head = nod
+            #can change to self.head(nod)?
     
-    def add_tail(self, node):
+    def add_tail(self, val):
+        nod = Node(val)
         if self.isEmpty():
-            self.head = node:
+            nod.next = None
+            self.head = nod
         else:
-            self.next = node
+            nod.next = None
+            self.next = nod
+    
+    def __iter__(self):
+        cur = self.head
+        while cur:
+            yield cur
+            cur = cur.next
+    
+    def __str__(self):
+        if self.isEmpty():
+            pass
+        else:
+            string = ""
+            while self.head != None:
+                string += self.data
+                self.head = self.next
+            print(string)
+    
+    @property
+    def size(self1):
+        if self.isEmpty():
+            return (0)
+        else:
+            i = 0
+            while self.head != None:
+                i += 1
+                self.head = self.next
+            return i
+    
+    def remove_first(self, val):
+        if self.isEmpty():
+            return False
+        elif self.data == val:
+            self.head = self.next
+                return True
+        else:
+            while self.head != None:
+                cur = self.head
+                self.head = self.next
+                if self.data == val:
+                    cur.next = self.next
+                    return True
+            return False
+    
+    def has_cycle(self):
+        s = set()
+        tmp = self.head
+        while tmp:
+            if tmp in s:
+                return True
+            s.add(tmp)
+            tmp = tmp.next
+        return False
+    
+    def sort_asc(self):
+        tmp = self.head
+        nxt = tmp.next
+        while tmp:
+            while nxt:
+                if tmp.data > nxt.data:
+                    tmp.next = nxt.next
+                    nxt.next = tmp
+                    tmp = nxt
+                    nxt = tmp.next
+                else:
+                    nxt = nxt.next
+            tmp = tmp.next
+            
+
+        

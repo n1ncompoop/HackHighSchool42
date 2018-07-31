@@ -1,22 +1,22 @@
 class Node(object):
-    def __init__(self, content):
-        if content == None:
-            raise ValueError('Node must have content')
-        self.c = content
-        self.n = None
+    def __init__(self, data):
+        if data == None:
+            raise ValueError('Node must have data')
+        self.data = data
+        self.next = None
     
     @property
     def content(self):
-        return self.c
+        return self.data
     
     @content.setter
     def content(self, val):
-        self.c = val
+        self.data = val
     
     @property
     def next(self):
-        return self.n
+        return self.next
     
     @next.setter
     def next(self, val):
-        self.n = val
+        self.next = val
