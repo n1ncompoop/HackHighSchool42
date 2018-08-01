@@ -1,4 +1,7 @@
-from second_class import SecondClass
+from cellphone import Cellphone
 
 if __name__ == "__main__":
-    sc = SecondClass()
+    cp = Cellphone()
+    cp.call()
+    cp.text()
+    cp.drop()

@@ -1,4 +1,8 @@
-from second_class import SecondClass
+from greeter import Greeter
+from insult_comic import Insult
 
 if __name__ == "__main__":
-    sc = SecondClass("Roy")
+    gr = Greeter()
+    ins = Insult()
+    gr.speak("Jake")
+    ins.speak("Mike")
